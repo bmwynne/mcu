@@ -40,10 +40,15 @@
 #include "commander.h"
 #include "board_com.h"
 
+// externs
+extern void __attribute__((noreturn)) __stack_chk_fail(void);
 
+//variables
 uint32_t __stack_chk_guard = 0;
 
-extern void __attribute__((noreturn)) __stack_chk_fail(void);
+
+char usb_serial_number[USB_DEVICE_GET_SERIAL_NAME_LENGTH];
+
 void __attribute__((noreturn)) __stack_chk_fail(void)
 {
     while (1) {
@@ -58,8 +63,11 @@ void SysTick_Handler(void)
     systick_update_time();
 }
 
+
+
 int main (void)
 {
+    // initialize system 
     wdt_disable(WDT);
     irq_initialize_vectors();
     cpu_irq_enable();
@@ -70,6 +78,7 @@ int main (void)
     delay_init(F_CPU);
     systick_init();
 
+    // main loop
     while (1) {
         led_on();
         delay_ms(1000);
@@ -77,5 +86,4 @@ int main (void)
         delay_ms(1000);
         led_on();
     }
-
 }

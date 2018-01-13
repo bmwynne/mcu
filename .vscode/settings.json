@@ -2,6 +2,8 @@
     "files.associations": {
         "gpio.h": "c",
         "parts.h": "c",
-        "ioport.h": "c"
+        "ioport.h": "c",
+        "mcu.h": "c",
+        "conf_usb.h": "c"
     }
 }
