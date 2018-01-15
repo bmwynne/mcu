@@ -30,6 +30,8 @@
 #include <string.h>
 #include "drivers/config/conf_usb.h"
 #include "drivers/config/mcu.h"
+#include "drivers/config/conf_uart_serial.h"
+#include "uart_serial.h"
 #include "usb.h"
 #include "ecc.h"
 #include "led.h"
